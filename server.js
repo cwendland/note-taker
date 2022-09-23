@@ -10,7 +10,7 @@ app.use(express.static());
 //app.use({urlEncoded: true});
 app.use('/api', api);
 
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 
