@@ -5,4 +5,8 @@ const app = express();
 
 app.use('/notes', notes);
 
+app.get('/', (req,res) => {
+    res.send('API');
+})
+
 module.exports = app;
