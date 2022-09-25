@@ -1,16 +1,12 @@
 [
     {
-        "title": "Test Title",
-        "text": "Test text"
+        "title": "Shopping List",
+        "text": "Milk\nCereal\nToast",
+        "id": "1d83"
     },
     {
-        "text": "test",
-        "body": "This is a test note",
-        "id": 789
-    },
-    {
-        "title": "test2",
-        "text": "This is a test note",
-        "id": 791
+        "title": "To-Do List",
+        "text": "Finish the note-taker project",
+        "id": "4702"
     }
 ]

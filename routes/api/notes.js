@@ -47,6 +47,8 @@ router.post('/', (req,res) => {
 
 router.delete('/:id', (req,res) => {
     //Find the note by ID and then remove it from the json
+    console.log(req.params.id);
+    const id = req.params.id;
     fs.readFile('./db/db.json', 'utf8', (err, data) => {
       if (err) {
         console.error(err);
@@ -54,13 +56,10 @@ router.delete('/:id', (req,res) => {
         // Convert string into JSON object
         const parsedNotes = JSON.parse(data);
 
-        // Add a new review
-        parsedNotes.push(newReview);
-
         // Write updated reviews back to the file
         fs.writeFile(
           './db/db.json',
-          JSON.stringify(parsedNotes.filter(note => note.id !== req.params.id), null, 4),
+          JSON.stringify(parsedNotes.filter(note => note.id != id), null, 4),
           (writeErr) =>
             writeErr
               ? console.error(writeErr)
@@ -70,12 +69,12 @@ router.delete('/:id', (req,res) => {
     });
 
     const response = {
-      status: 'Success'
+      status: 'Success',
+      note_id: `${id}`
     };
 
     console.log(response);
     res.status(201).json(response);
-    res.send(`Deleted note with id ${req.params.id}`);
 });
 
 module.exports = router;
